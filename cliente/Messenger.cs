@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,8 +13,6 @@ namespace cliente
     // Rip mesenger 2010 F
     class Messenger
     {
-        private static readonly HttpClient client = new HttpClient();
-
         public static async void Post(Object Data)
         {
             string Json = JsonConvert.SerializeObject(Data);
@@ -22,9 +20,11 @@ namespace cliente
 #if DEBUG
             Console.WriteLine("Debug:\r\n\tJson: " + Json);
 #endif
+            byte[] JsonBytes = Encoding.UTF8.GetBytes(Json);
 
+           
+             
             WebRequest request = HttpWebRequest.Create(Config.Url);
-            byte[] byteData = Encoding.ASCII.GetBytes(Json);
             request.ContentType = "application/json";
             request.Method = "POST";
 
@@ -32,7 +32,8 @@ namespace cliente
             {
                 using (var stream = request.GetRequestStream())
                 {
-                    stream.Write(byteData, 0, byteData.Length);
+                    stream.Write(JsonBytes, 0, JsonBytes.Length);
+
                 }
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -46,3 +47,25 @@ namespace cliente
                 Console.WriteLine("Error:\r\n\t " + e.Message);
             }
         }
+
+        public string Get(Uri url)
+        {
+            var request = HttpWebRequest.Create(url);
+            request.ContentType = "application/json";
+            request.Method = "GET";
+
+            try
+            {
+                var response = (HttpWebResponse)request.GetResponse();
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+                return responseString;
+            }
+            catch (WebException e)
+            {
+                return null;
+            }
+        }
+    }
+
+}
