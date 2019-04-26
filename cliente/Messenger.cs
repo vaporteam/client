@@ -13,7 +13,7 @@ namespace cliente
     // Rip mesenger 2010 F
     class Messenger
     {
-        public static async void Post(Object Data)
+        public static void Post(Object Data)
         {
             string Json = JsonConvert.SerializeObject(Data);
 
@@ -21,8 +21,6 @@ namespace cliente
             Console.WriteLine("Debug:\r\n\tJson: " + Json);
 #endif
             byte[] JsonBytes = Encoding.UTF8.GetBytes(Json);
-
-           
              
             WebRequest request = HttpWebRequest.Create(Config.Url);
             request.ContentType = "application/json";
