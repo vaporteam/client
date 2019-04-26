@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,15 +19,30 @@ namespace cliente
         {
             string Json = JsonConvert.SerializeObject(Data);
 
-            var content = new (Json);
+#if DEBUG
+            Console.WriteLine("Debug:\r\n\tJson: " + Json);
+#endif
 
-            var response = await client.PostAsync(Config.Url, content);
+            WebRequest request = HttpWebRequest.Create(Config.Url);
+            byte[] byteData = Encoding.ASCII.GetBytes(Json);
+            request.ContentType = "application/json";
+            request.Method = "POST";
 
-            var ResponseString = response.Content.Headers;
+            try
+            {
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(byteData, 0, byteData.Length);
+                }
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
 #if DEBUG
-            Console.WriteLine("Debug:\r\n\tHeaders: " + ResponseString);
+                Console.WriteLine("Debug:\r\n\tResponse: " + responseString);
 #endif
+            }
+            catch (WebException e)
+            {
+                Console.WriteLine("Error:\r\n\t " + e.Message);
+            }
         }
-    }
-}
