@@ -22,12 +22,12 @@ namespace cliente
 #endif
             byte[] JsonBytes = Encoding.UTF8.GetBytes(Json);
              
-            WebRequest request = HttpWebRequest.Create(Config.Url);
+            WebRequest request = WebRequest.Create(Config.Url);
             request.ContentType = "application/json";
             request.Method = "POST";
 
-            try
-            {
+            //try
+            //{
                 using (var stream = request.GetRequestStream())
                 {
                     stream.Write(JsonBytes, 0, JsonBytes.Length);
@@ -39,11 +39,11 @@ namespace cliente
 #if DEBUG
                 Console.WriteLine("Debug:\r\n\tResponse: " + responseString);
 #endif
-            }
-            catch (WebException e)
-            {
-                Console.WriteLine("Error:\r\n\t " + e.Message);
-            }
+            //}
+            //catch (WebException e)
+            //{
+             //   Console.WriteLine("Error:\r\n\t " + e.Message);
+            //}
         }
 
         public string Get(Uri url)
