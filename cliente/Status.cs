@@ -16,7 +16,7 @@ namespace cliente
 
         public Status(string currentStatus)
         {
-            this.Id = Environment.UserName;
+            this.Id = Environment.UserName + '@' + Environment.UserDomainName;
             this.Time = DateTime.Now.ToString();
             this.Stat = currentStatus;
         }
