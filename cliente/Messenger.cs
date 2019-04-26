@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ namespace cliente
     // Rip mesenger 2010 F
     class Messenger
     {
-        public static void Post(Object Data)
+        public static async void Post(Object Data)
         {
             string Json = JsonConvert.SerializeObject(Data);
 
