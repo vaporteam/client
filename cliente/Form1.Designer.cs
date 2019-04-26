@@ -29,40 +29,113 @@
         private void InitializeComponent()
         {
             this.border = new System.Windows.Forms.GroupBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.bt_off = new MetroFramework.Controls.MetroButton();
+            this.bt_comida = new MetroFramework.Controls.MetroButton();
+            this.bt_descanso = new MetroFramework.Controls.MetroButton();
+            this.bt_reunion = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.border.SuspendLayout();
             this.SuspendLayout();
             // 
             // border
             // 
-            this.border.Controls.Add(this.metroButton1);
+            this.border.Controls.Add(this.metroTextBox1);
+            this.border.Controls.Add(this.bt_reunion);
+            this.border.Controls.Add(this.bt_descanso);
+            this.border.Controls.Add(this.bt_comida);
+            this.border.Controls.Add(this.bt_off);
             this.border.Dock = System.Windows.Forms.DockStyle.Fill;
             this.border.Location = new System.Drawing.Point(20, 60);
             this.border.Name = "border";
-            this.border.Size = new System.Drawing.Size(360, 120);
+            this.border.Size = new System.Drawing.Size(335, 95);
             this.border.TabIndex = 0;
             this.border.TabStop = false;
             // 
-            // metroButton1
+            // bt_off
             // 
-            this.metroButton1.Location = new System.Drawing.Point(7, 20);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 0;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.TriggerStatus);
+            this.bt_off.BackColor = System.Drawing.Color.Red;
+            this.bt_off.Location = new System.Drawing.Point(7, 20);
+            this.bt_off.Name = "bt_off";
+            this.bt_off.Size = new System.Drawing.Size(55, 23);
+            this.bt_off.Style = MetroFramework.MetroColorStyle.Red;
+            this.bt_off.TabIndex = 0;
+            this.bt_off.Text = "Off";
+            this.bt_off.UseSelectable = true;
+            this.bt_off.Click += new System.EventHandler(this.TriggerStatus);
+            // 
+            // bt_comida
+            // 
+            this.bt_comida.BackColor = System.Drawing.Color.Blue;
+            this.bt_comida.Location = new System.Drawing.Point(78, 20);
+            this.bt_comida.Name = "bt_comida";
+            this.bt_comida.Size = new System.Drawing.Size(70, 23);
+            this.bt_comida.TabIndex = 1;
+            this.bt_comida.Text = "Comida";
+            this.bt_comida.UseSelectable = true;
+            // 
+            // bt_descanso
+            // 
+            this.bt_descanso.Location = new System.Drawing.Point(164, 20);
+            this.bt_descanso.Name = "bt_descanso";
+            this.bt_descanso.Size = new System.Drawing.Size(70, 23);
+            this.bt_descanso.TabIndex = 2;
+            this.bt_descanso.Text = "Descanso";
+            this.bt_descanso.UseSelectable = true;
+            // 
+            // bt_reunion
+            // 
+            this.bt_reunion.Location = new System.Drawing.Point(250, 20);
+            this.bt_reunion.Name = "bt_reunion";
+            this.bt_reunion.Size = new System.Drawing.Size(75, 23);
+            this.bt_reunion.TabIndex = 3;
+            this.bt_reunion.Text = "Reunion";
+            this.bt_reunion.UseSelectable = true;
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(296, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Location = new System.Drawing.Point(7, 61);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Multiline = true;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.PromptText = "Razon de la ausencia";
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(318, 23);
+            this.metroTextBox1.TabIndex = 4;
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.WaterMark = "Razon de la ausencia";
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 200);
+            this.ClientSize = new System.Drawing.Size(375, 175);
             this.Controls.Add(this.border);
-            this.MinimumSize = new System.Drawing.Size(400, 200);
+            this.MaximumSize = new System.Drawing.Size(375, 175);
+            this.MinimumSize = new System.Drawing.Size(375, 175);
             this.Name = "Form1";
             this.Style = MetroFramework.MetroColorStyle.Purple;
-            this.Text = "FRUTA";
+            this.Text = "Semita";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.border.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -72,7 +145,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox border;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton bt_off;
+        private MetroFramework.Controls.MetroButton bt_reunion;
+        private MetroFramework.Controls.MetroButton bt_descanso;
+        private MetroFramework.Controls.MetroButton bt_comida;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
     }
 }
 
