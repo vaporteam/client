@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace cliente
 {
-    class Status
+    class Status : Common.Status
     {
-
-        public string Id { get; set; }
-        public string Time { get; set; }
-
-        public string Stat { get; set; }
-
-        public Status(string currentStatus)
+        public Status(string CurrentStatus, string Description)
         {
             this.Id = Environment.UserName + '@' + Environment.UserDomainName;
             this.Time = DateTime.Now.ToString();
-            this.Stat = currentStatus;
+            this.Stat = CurrentStatus;
+            this.Description = Description;
         }
-
         public bool Post()
         {
             return Messenger.Post(this);
