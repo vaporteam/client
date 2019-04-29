@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +20,30 @@ namespace cliente
         private void TriggerStatus(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            if (!new Status(b.Text).Post()) {
-                MetroFramework.MetroMessageBox.Show(this, message:"Posting", height:120, title:"Error");
+            if (!new Status(b.Text).Post())
+            {
+                MetroFramework.MetroMessageBox.Show(this, message: "Posting", height: 120, title: "Error");
             }
+        }
+        private void Bt_comida_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.Green;
+            btn.ForeColor = Color.LightGray;
+        }
+
+        private void Bt_comida_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.MediumOrchid;
+            btn.ForeColor = Color.Black;
+        }
+
+        private void Bt_comida_MouseMove(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.Green;
+            btn.ForeColor = Color.LightGray;
         }
     }
 }
