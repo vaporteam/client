@@ -21,9 +21,9 @@ namespace cliente
             this.Stat = currentStatus;
         }
 
-        public void Post()
+        public bool Post()
         {
-            Messenger.Post(this);
+            return Messenger.Post(this);
         }
     }
 }

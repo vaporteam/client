@@ -13,7 +13,7 @@ namespace cliente
     // Rip mesenger 2010 F
     class Messenger
     {
-        public static async void Post(Object Data)
+        public static bool Post(Object Data)
         {
             string Json = JsonConvert.SerializeObject(Data);
 
@@ -26,8 +26,8 @@ namespace cliente
             request.ContentType = "application/json";
             request.Method = "POST";
 
-            //try
-            //{
+            try
+            {
                 using (var stream = request.GetRequestStream())
                 {
                     stream.Write(JsonBytes, 0, JsonBytes.Length);
@@ -39,11 +39,13 @@ namespace cliente
 #if DEBUG
                 Console.WriteLine("Debug:\r\n\tResponse: " + responseString);
 #endif
-            //}
-            //catch (WebException e)
-            //{
-             //   Console.WriteLine("Error:\r\n\t " + e.Message);
-            //}
+            }
+            catch (WebException e)
+            {
+                Console.WriteLine("Error:\r\n\t " + e.Message);
+                return false;
+            }
+            return true;
         }
 
         public string Get(Uri url)

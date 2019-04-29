@@ -20,7 +20,9 @@ namespace cliente
         private void TriggerStatus(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            new Status(b.Text).Post();
+            if (!new Status(b.Text).Post()) {
+                MetroFramework.MetroMessageBox.Show(this, message:"Posting", height:120, title:"Error");
+            }
         }
     }
 }
