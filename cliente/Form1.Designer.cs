@@ -134,6 +134,59 @@
             this.Button_Off.UseSelectable = true;
             this.Button_Off.Click += new System.EventHandler(this.TriggerStatus);
             // 
+            // bt_reunion
+            // 
+            this.bt_reunion.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.bt_reunion.Location = new System.Drawing.Point(250, 20);
+            this.bt_reunion.Name = "bt_reunion";
+            this.bt_reunion.Size = new System.Drawing.Size(75, 23);
+            this.bt_reunion.TabIndex = 3;
+            this.bt_reunion.Text = "Reunion";
+            this.bt_reunion.UseCustomBackColor = true;
+            this.bt_reunion.UseSelectable = true;
+            // 
+            // bt_descanso
+            // 
+            this.bt_descanso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.bt_descanso.Location = new System.Drawing.Point(164, 20);
+            this.bt_descanso.Name = "bt_descanso";
+            this.bt_descanso.Size = new System.Drawing.Size(70, 23);
+            this.bt_descanso.TabIndex = 2;
+            this.bt_descanso.Text = "Descanso";
+            this.bt_descanso.UseCustomBackColor = true;
+            this.bt_descanso.UseSelectable = true;
+            // 
+            // bt_comida
+            // 
+            this.bt_comida.BackColor = System.Drawing.Color.MediumOrchid;
+            this.bt_comida.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bt_comida.Location = new System.Drawing.Point(78, 20);
+            this.bt_comida.Name = "bt_comida";
+            this.bt_comida.Size = new System.Drawing.Size(70, 23);
+            this.bt_comida.TabIndex = 1;
+            this.bt_comida.Text = "Comida";
+            this.bt_comida.UseCustomBackColor = true;
+            this.bt_comida.UseSelectable = true;
+            this.bt_comida.MouseEnter += new System.EventHandler(this.Bt_comida_MouseEnter);
+            this.bt_comida.MouseLeave += new System.EventHandler(this.Bt_comida_MouseLeave);
+            this.bt_comida.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bt_comida_MouseMove);
+            // 
+            // bt_off
+            // 
+            this.bt_off.BackColor = System.Drawing.Color.Red;
+            this.bt_off.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bt_off.DisplayFocus = true;
+            this.bt_off.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bt_off.Location = new System.Drawing.Point(7, 20);
+            this.bt_off.Name = "bt_off";
+            this.bt_off.Size = new System.Drawing.Size(55, 23);
+            this.bt_off.Style = MetroFramework.MetroColorStyle.Red;
+            this.bt_off.TabIndex = 0;
+            this.bt_off.Text = "Off";
+            this.bt_off.UseCustomBackColor = true;
+            this.bt_off.UseSelectable = true;
+            this.bt_off.Click += new System.EventHandler(this.TriggerStatus);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
