@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    class Status
+    public class Status
     {
         public string Id { get; set; }
         public string Time { get; set; }
