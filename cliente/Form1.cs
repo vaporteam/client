@@ -21,8 +21,9 @@ namespace cliente
         {
             Button Btn = (Button)sender;
             string Description = TextBox_Razon.Text;
-            if (!new Status(Btn.Text, Description).Post()) {
-                MetroFramework.MetroMessageBox.Show(this, message:"Posting", height:120, title:"Error");
+            Exception exc;
+            if ((exc = new Status(Btn.Text, Description).Post()) != null) {
+                MetroFramework.MetroMessageBox.Show(this, message:exc.Message, height:120, title:"Error");
             }
         }
         private void Bt_comida_MouseEnter(object sender, EventArgs e)

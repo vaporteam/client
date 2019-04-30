@@ -17,7 +17,7 @@ namespace cliente
     class Messenger
 
     {
-        public static bool Post(Object Data)
+        public static Exception Post(Object Data)
         {
 
             string Json = JsonConvert.SerializeObject(Data);
@@ -70,10 +70,9 @@ namespace cliente
             }catch(Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return e;
             }
-
-            return true;
+            return null;
         }
         public string Get(Uri url)
         {
