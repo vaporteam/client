@@ -72,7 +72,7 @@
             this.TextBox_Razon.Multiline = true;
             this.TextBox_Razon.Name = "TextBox_Razon";
             this.TextBox_Razon.PasswordChar = '\0';
-            this.TextBox_Razon.PromptText = "Razon de la ausencia";
+            this.TextBox_Razon.WaterMark = "Razon de la ausencia";
             this.TextBox_Razon.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.TextBox_Razon.SelectedText = "";
             this.TextBox_Razon.SelectionLength = 0;

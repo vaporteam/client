@@ -16,11 +16,6 @@ namespace cliente
         [STAThread]
         static void Main()
         {
-            while (true)
-            {
-                getPos();
-                Thread.Sleep(100);
-            }
             Config.TryLoad();
 
             InputLogger k = new InputLogger();
@@ -38,23 +33,6 @@ namespace cliente
             Application.Run(new Form1());
 
             k.UnHook();
-        }
-
-        private static void getPos()
-        {
-            Point point = new Point();
-
-            bool result = WindowsAPI.GetCursorPos(ref point);
-
-            int x = point.X;
-            int y = point.Y;
-
-            Console.WriteLine(x + " " + y);
-        }
-        public class WindowsAPI
-        {
-            [DllImport("user32.dll")]
-            public static extern bool GetCursorPos(ref Point pt);
         }
     }
 }
