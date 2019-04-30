@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,10 +21,34 @@ namespace cliente
         private void TriggerStatus(object sender, EventArgs e)
         {
             Button Btn = (Button)sender;
+            string Status = Btn.Text;
             string Description = TextBox_Razon.Text;
+
+            DialogResult PopUpAnsewer;
+            switch (Status)
+            {
+                case "Off":
+                    string Title = "Apagar";
+                    string Message = "Estas Seguro?";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    int Height = 120;
+                    PopUpAnsewer = MetroFramework.MetroMessageBox.Show(this, message: Message, height: Height, title: Title, buttons: buttons);
+                    break;
+                default:
+                    PopUpAnsewer = DialogResult.None;
+                    break;
+            }
+
             Exception exc;
-            if ((exc = new Status(Btn.Text, Description).Post()) != null) {
-                MetroFramework.MetroMessageBox.Show(this, message:exc.Message, height:120, title:"Error");
+            if ((exc = new Status(Status, Description).Post()) != null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, message: exc.Message, height: 120, title: "Error");
+            }
+
+            if ((DialogResult.Yes == PopUpAnsewer) && (Status == "Off"))
+            {
+                if (!WTSDisconnectSession(WTS_CURRENT_SERVER_HANDLE, WTS_CURRENT_SESSION, false))
+                    throw new Win32Exception();
             }
         }
         private void Bt_comida_MouseEnter(object sender, EventArgs e)
@@ -46,5 +71,10 @@ namespace cliente
             btn.BackColor = Color.Green;
             btn.ForeColor = Color.LightGray;
         }
+         
+        [DllImport("wtsapi32.dll", SetLastError = true)]
+        static extern bool WTSDisconnectSession(IntPtr hServer, int sessionId, bool bWait);
+        const int WTS_CURRENT_SESSION = -1;
+        static readonly IntPtr WTS_CURRENT_SERVER_HANDLE = IntPtr.Zero;
     }
 }
