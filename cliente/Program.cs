@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,9 +16,22 @@ namespace cliente
         static void Main()
         {
             Config.TryLoad();
+
+            InputLogger k = new InputLogger();
+
+            ThreadPool.QueueUserWorkItem((s) => {
+                while (true)
+                {
+                    Console.WriteLine("Cursor Pos {0}\nKeypress since last: {1}", k.GetCursorPosition(), k.GetKeypressNumber());
+                    Thread.Sleep(5 * 1000);
+                }
+            });
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            k.UnHook();
         }
     }
 }
