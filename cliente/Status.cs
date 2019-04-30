@@ -15,7 +15,7 @@ namespace cliente
             this.Stat = CurrentStatus;
             this.Description = Description;
         }
-        public bool Post()
+        public Exception Post()
         {
             return Messenger.Post(this);
         }
