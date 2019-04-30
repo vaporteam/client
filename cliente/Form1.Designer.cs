@@ -136,56 +136,56 @@
             // 
             // bt_reunion
             // 
-            this.bt_reunion.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.bt_reunion.Location = new System.Drawing.Point(250, 20);
-            this.bt_reunion.Name = "bt_reunion";
-            this.bt_reunion.Size = new System.Drawing.Size(75, 23);
-            this.bt_reunion.TabIndex = 3;
-            this.bt_reunion.Text = "Reunion";
-            this.bt_reunion.UseCustomBackColor = true;
-            this.bt_reunion.UseSelectable = true;
+            this.Button_Reunion.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Button_Reunion.Location = new System.Drawing.Point(250, 20);
+            this.Button_Reunion.Name = "bt_reunion";
+            this.Button_Reunion.Size = new System.Drawing.Size(75, 23);
+            this.Button_Reunion.TabIndex = 3;
+            this.Button_Reunion.Text = "Reunion";
+            this.Button_Reunion.UseCustomBackColor = true;
+            this.Button_Reunion.UseSelectable = true;
             // 
             // bt_descanso
             // 
-            this.bt_descanso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.bt_descanso.Location = new System.Drawing.Point(164, 20);
-            this.bt_descanso.Name = "bt_descanso";
-            this.bt_descanso.Size = new System.Drawing.Size(70, 23);
-            this.bt_descanso.TabIndex = 2;
-            this.bt_descanso.Text = "Descanso";
-            this.bt_descanso.UseCustomBackColor = true;
-            this.bt_descanso.UseSelectable = true;
+            this.Button_Descanso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Button_Descanso.Location = new System.Drawing.Point(164, 20);
+            this.Button_Descanso.Name = "bt_descanso";
+            this.Button_Descanso.Size = new System.Drawing.Size(70, 23);
+            this.Button_Descanso.TabIndex = 2;
+            this.Button_Descanso.Text = "Descanso";
+            this.Button_Descanso.UseCustomBackColor = true;
+            this.Button_Descanso.UseSelectable = true;
             // 
             // bt_comida
             // 
-            this.bt_comida.BackColor = System.Drawing.Color.MediumOrchid;
-            this.bt_comida.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bt_comida.Location = new System.Drawing.Point(78, 20);
-            this.bt_comida.Name = "bt_comida";
-            this.bt_comida.Size = new System.Drawing.Size(70, 23);
-            this.bt_comida.TabIndex = 1;
-            this.bt_comida.Text = "Comida";
-            this.bt_comida.UseCustomBackColor = true;
-            this.bt_comida.UseSelectable = true;
-            this.bt_comida.MouseEnter += new System.EventHandler(this.Bt_comida_MouseEnter);
-            this.bt_comida.MouseLeave += new System.EventHandler(this.Bt_comida_MouseLeave);
-            this.bt_comida.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bt_comida_MouseMove);
+            this.Button_Comida.BackColor = System.Drawing.Color.MediumOrchid;
+            this.Button_Comida.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Button_Comida.Location = new System.Drawing.Point(78, 20);
+            this.Button_Comida.Name = "bt_comida";
+            this.Button_Comida.Size = new System.Drawing.Size(70, 23);
+            this.Button_Comida.TabIndex = 1;
+            this.Button_Comida.Text = "Comida";
+            this.Button_Comida.UseCustomBackColor = true;
+            this.Button_Comida.UseSelectable = true;
+            this.Button_Comida.MouseEnter += new System.EventHandler(this.Bt_comida_MouseEnter);
+            this.Button_Comida.MouseLeave += new System.EventHandler(this.Bt_comida_MouseLeave);
+            this.Button_Comida.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bt_comida_MouseMove);
             // 
             // bt_off
             // 
-            this.bt_off.BackColor = System.Drawing.Color.Red;
-            this.bt_off.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bt_off.DisplayFocus = true;
-            this.bt_off.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bt_off.Location = new System.Drawing.Point(7, 20);
-            this.bt_off.Name = "bt_off";
-            this.bt_off.Size = new System.Drawing.Size(55, 23);
-            this.bt_off.Style = MetroFramework.MetroColorStyle.Red;
-            this.bt_off.TabIndex = 0;
-            this.bt_off.Text = "Off";
-            this.bt_off.UseCustomBackColor = true;
-            this.bt_off.UseSelectable = true;
-            this.bt_off.Click += new System.EventHandler(this.TriggerStatus);
+            this.Button_Off.BackColor = System.Drawing.Color.Red;
+            this.Button_Off.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Button_Off.DisplayFocus = true;
+            this.Button_Off.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Button_Off.Location = new System.Drawing.Point(7, 20);
+            this.Button_Off.Name = "bt_off";
+            this.Button_Off.Size = new System.Drawing.Size(55, 23);
+            this.Button_Off.Style = MetroFramework.MetroColorStyle.Red;
+            this.Button_Off.TabIndex = 0;
+            this.Button_Off.Text = "Off";
+            this.Button_Off.UseCustomBackColor = true;
+            this.Button_Off.UseSelectable = true;
+            this.Button_Off.Click += new System.EventHandler(this.TriggerStatus);
             // 
             // Form1
             // 

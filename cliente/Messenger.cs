@@ -1,20 +1,25 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using static cliente.Program;
 
 namespace cliente
 {
+
     // Rip mesenger 2010 F
     class Messenger
+
     {
         public static bool Post(Object Data)
         {
+
             string Json = JsonConvert.SerializeObject(Data);
 #if DEBUG
             Console.WriteLine("Debug:\r\n\tJson: " + Json);
