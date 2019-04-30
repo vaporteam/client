@@ -34,7 +34,7 @@ namespace cliente
                 // Set the Method property of the request to POST.  
                 request.Method = "POST";
 
-
+                request.Headers.Add(HttpRequestHeader.UserAgent, "");
 
                 // Set the ContentType property of the WebRequest.  
                 request.ContentType = "application/json; charset=utf-8";
