@@ -1,4 +1,5 @@
-﻿using MadMilkman.Ini;
+﻿using Common;
+using MadMilkman.Ini;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ namespace cliente
         private static string iniPath = string.Format("{0}\\{1}", Directory.GetCurrentDirectory(), "settings.ini");
         public static string Url { get; set; } = "http://localhost:8080";
 
-        public static Common.ClientConfig Cnf { get; set; } = new Common.ClientConfig();
+        public static ClientConfig Cnf { get; set; } = LoadINI.TryLoad();
 
         class LoadConfig
         {
@@ -23,21 +24,19 @@ namespace cliente
            
         class LoadINI
         {
-            public static void TryLoad()
+            public static ClientConfig TryLoad()
             {
-                if (!LoadIni())
+                ClientConfig Cnf;
+                if ((Cnf = LoadIni()) == null)
                 {
-                    if (!CreateIni())
+                    if ((Cnf = CreateIni()) == null)
                     {
                         Console.WriteLine("Critical Error!\nCould not load config\nPress any key to exit...");
                         Console.ReadKey(false);
                         Environment.Exit(1);
-                        if (!LoadIni())
-                        {
-
-                        }
                     }
                 }
+                return Cnf;
             }
 
             private static IniOptions IniOptions()
@@ -50,8 +49,9 @@ namespace cliente
                 return options;
             }
 
-            private static bool LoadIni()
+            private static ClientConfig LoadIni(bool failed = false)
             {
+                ClientConfig Cnf = new ClientConfig();
                 try
                 {
                     IniFile file = new IniFile(IniOptions());
@@ -72,16 +72,15 @@ namespace cliente
                     //
                     IniSection Settings = file.Sections["Client"];
                     //
-                    string uri;
-                    Settings.Keys["Url"].TryParseValue(out uri);
-                    Url = uri;
+                    Settings.Keys["Url"].TryParseValue(out string uri);
+                    Cnf.Uri = uri;
                     //
 
                 }
                 catch (FileNotFoundException e)
                 {
                     Console.WriteLine(e.Message);
-                    return false;
+                    return null;
                 }
 
 #if DEBUG
@@ -89,10 +88,10 @@ namespace cliente
                 "Debug: " + Environment.NewLine +
                 "   Uri: " + Url + Environment.NewLine);
 #endif
-                return true;
+                return Cnf;
             }
 
-            private static bool CreateIni()
+            private static ClientConfig CreateIni()
             {
                 int Indentation = 4;
                 // Create new file with a default formatting.
@@ -116,7 +115,7 @@ namespace cliente
                 {
                     Console.WriteLine(e.Message);
                 }
-                return true;
+                return LoadINI.LoadIni(failed: true);
             }
         }
     }
