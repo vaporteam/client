@@ -53,12 +53,12 @@ namespace cliente
             }
             else if (Btn.Text == "Comida")
             {
-                bool lmao = true;
+
                 int count = 60;
                 ThreadPool.QueueUserWorkItem((s) =>
                 {
                     
-                    while (lmao)
+                    while (count >= 0)
                     {
                         Console.WriteLine("{0} minutos", count);
                         Thread.Sleep(1000);
@@ -66,9 +66,8 @@ namespace cliente
                     }
                 });
                 MetroFramework.MetroMessageBox.Show(this, message: (count + " minutos"), height: 120, title: "Comida");
-                lmao = false;
             }
-            else if (Btn.Text != "Off")
+            else
             {
                 MetroFramework.MetroMessageBox.Show(this, message: "Enviado", height: 120, title: "Post");
             }
