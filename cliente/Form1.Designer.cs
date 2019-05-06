@@ -72,7 +72,7 @@
             this.TextBox_Razon.Multiline = true;
             this.TextBox_Razon.Name = "TextBox_Razon";
             this.TextBox_Razon.PasswordChar = '\0';
-            this.TextBox_Razon.WaterMark = "Razon de la ausencia";
+            this.TextBox_Razon.PromptText = "Razon de la ausencia";
             this.TextBox_Razon.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.TextBox_Razon.SelectedText = "";
             this.TextBox_Razon.SelectionLength = 0;
@@ -87,7 +87,7 @@
             // 
             // Button_Reunion
             // 
-            this.Button_Reunion.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Button_Reunion.BackColor = System.Drawing.Color.MediumOrchid;
             this.Button_Reunion.Location = new System.Drawing.Point(250, 20);
             this.Button_Reunion.Name = "Button_Reunion";
             this.Button_Reunion.Size = new System.Drawing.Size(75, 23);
@@ -99,7 +99,7 @@
             // 
             // Button_Descanso
             // 
-            this.Button_Descanso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Button_Descanso.BackColor = System.Drawing.Color.MediumOrchid;
             this.Button_Descanso.Location = new System.Drawing.Point(164, 20);
             this.Button_Descanso.Name = "Button_Descanso";
             this.Button_Descanso.Size = new System.Drawing.Size(70, 23);
@@ -146,6 +146,7 @@
             this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "Semita";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.border.ResumeLayout(false);
             this.ResumeLayout(false);
 

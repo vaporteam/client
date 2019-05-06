@@ -24,10 +24,11 @@ namespace cliente
                 while (true)
                 {
                     Console.WriteLine("Cursor Pos {0}\nKeypress since last: {1}", k.GetCursorPosition(), k.GetKeypressNumber());
-                    Thread.Sleep(5 * 1000);
+                    Thread.Sleep(5000);
                 }
             });
 
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
