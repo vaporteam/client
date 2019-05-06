@@ -30,12 +30,11 @@ namespace cliente
             try
             {
                 // Create a request using a URL that can receive a post.   
-                WebRequest request = WebRequest.Create(Config.Url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Config.Url);
                 // Set the Method property of the request to POST.  
                 request.Method = "POST";
 
-                request.Headers.Add(HttpRequestHeader.UserAgent, "");
-
+                request.UserAgent = "Test_Tracker";
                 // Set the ContentType property of the WebRequest.  
                 request.ContentType = "application/json; charset=utf-8";
                 // Set the ContentLength property of the WebRequest.  
@@ -62,7 +61,13 @@ namespace cliente
                     // Read the content.  
                     string responseFromServer = reader.ReadToEnd();
                     // Display the content.  
+#if DEBUG
                     Console.WriteLine(responseFromServer);
+#endif
+                    if (responseFromServer != "Ok")
+                    {
+                        return new Exception(responseFromServer);
+                    }
                 }
 
                 // Close the response.  
