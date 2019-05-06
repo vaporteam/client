@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -16,15 +17,13 @@ namespace cliente
         [STAThread]
         static void Main()
         {
-            Config.TryLoad();
-
             InputLogger k = new InputLogger();
 
             ThreadPool.QueueUserWorkItem((s) => {
                 while (true)
                 {
                     Console.WriteLine("Cursor Pos {0}\nKeypress since last: {1}", k.GetCursorPosition(), k.GetKeypressNumber());
-                    Thread.Sleep(5000);
+                    Thread.Sleep(5 * Duration.Minute);
                 }
             });
 

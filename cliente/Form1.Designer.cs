@@ -146,7 +146,6 @@
             this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "Semita";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.border.ResumeLayout(false);
             this.ResumeLayout(false);
 
